@@ -1,26 +1,9 @@
-![Panda.js Logo](http://www.pandajs.net/img/panda_178x120.png)
+# shadow-of-the-beast-html5
 
-## Panda.js HTML5 game engine
+16-bit Amiga classic title remaking with HTML5 and PandaJS.
 
-Free HTML5 game engine for mobile and desktop with Canvas and WebGL rendering.
+**Shadow of the Beast** is a side-scrolling platform video game produced by [Reflections Interactive](https://en.wikipedia.org/wiki/Ubisoft_Reflections) and published by Psygnosis in 1989. The original version was released for the [Commodore Amiga](https://en.wikipedia.org/wiki/Commodore_Amiga), and was later ported to many other systems. Shadow of the Beast is considered revolutionary at the time, because of its graphics, with many more colours on screen and up to twelve levels of parallax scrolling backdrops, were of a level rarely if ever seen before in action games. 
 
-http://www.pandajs.net
+This is my attempt to recreate the same feeling with HTML5 and [PandaJS](http://www.pandajs.net/).
 
-### Install
-
-    $ sudo npm install -g pandatool
-    $ mkdir MyPandaGame
-    $ cd MyPandaGame
-    $ panda install
-
-### Support
-
-Join the discussion at official [Panda.js forum](http://www.html5gamedevs.com/forum/19-pandajs/).
-
-### License
-
-Panda.js is released under the [MIT License](http://opensource.org/licenses/MIT).
-
-Financed by [Yle](http://en.wikipedia.org/wiki/Yle).
-
-[![Analytics](https://ga-beacon.appspot.com/UA-42024756-3/panda.js/index?pixel)](https://github.com/igrigorik/ga-beacon)
+(source: [Wikipedia](https://en.wikipedia.org/wiki/Shadow_of_the_Beast))
