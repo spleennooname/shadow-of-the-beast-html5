@@ -2,6 +2,7 @@
 *.bat
 game.min.js
 game.cache
+desktop.ini
 node_modules
 plugins
 1.13_src
