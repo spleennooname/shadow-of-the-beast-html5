@@ -1,0 +1,15 @@
+{
+  "name": "sotb",
+  "version": "1.0.0",
+  "description": "demo shadow of the beast - PandaJS powered",
+  "author": "spleen666@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-closure-compiler": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest"
+  }
+}
