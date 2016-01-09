@@ -7,3 +7,7 @@
 This is my attempt to recreate the same feeling with HTML5 and [PandaJS](http://www.pandajs.net/).
 
 (source: [Wikipedia](https://en.wikipedia.org/wiki/Shadow_of_the_Beast))
+
+** demo **
+check the [demo](http://spleennooname.github.io/shadow-of-the-beast-html5/)
+
