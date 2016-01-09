@@ -1,4 +1,4 @@
-# shadow-of-the-beast-html5
+##  shadow-of-the-beast-html5
 
 16-bit Amiga classic title remaking with HTML5 and [PandaJS](http://www.pandajs.net/).
 
@@ -8,5 +8,5 @@ This is my attempt to recreate the same feeling with HTML5 and [PandaJS](http://
 
 (source: [Wikipedia](https://en.wikipedia.org/wiki/Shadow_of_the_Beast))
 
-**demo**
-here the [http://spleennooname.github.io/shadow-of-the-beast-html5/](http://spleennooname.github.io/shadow-of-the-beast-html5/)
+### demo
+[http://spleennooname.github.io/shadow-of-the-beast-html5/](http://spleennooname.github.io/shadow-of-the-beast-html5/)
