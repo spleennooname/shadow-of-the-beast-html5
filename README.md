@@ -9,4 +9,4 @@ This is my attempt to recreate the same feeling with HTML5 and [PandaJS](http://
 (source: [Wikipedia](https://en.wikipedia.org/wiki/Shadow_of_the_Beast))
 
 **demo**
-here the [demo](http://spleennooname.github.io/shadow-of-the-beast-html5/)
+here the [http://spleennooname.github.io/shadow-of-the-beast-html5/](http://spleennooname.github.io/shadow-of-the-beast-html5/)
