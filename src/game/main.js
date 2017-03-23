@@ -3,7 +3,7 @@ game.module(
     )
     .body(function() {
 
-        var baseAssets = "https://dl.dropboxusercontent.com/u/1358781/lab/games/shadow-of-the-beast/media/";
+        var baseAssets = "https://spleennooname.github.io/shadow-of-the-beast-html5/media/";
         var baseSprites = baseAssets + "sprites/640x400/";
 
         game.addAsset(baseSprites + 'aarbonRun.png', 'aarbon');
