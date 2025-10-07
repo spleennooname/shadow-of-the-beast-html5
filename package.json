@@ -1,15 +1,20 @@
 {
   "name": "sotb",
   "version": "1.0.0",
-  "description": "demo shadow of the beast - PandaJS powered",
+  "description": "demo shadow of the beast - PIXI.js powered",
   "author": "spleen666@gmail.com",
   "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pixi-filters": "^6.1.4",
+    "pixi.js": "^8.0.0"
+  },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-closure-compiler": "latest",
-    "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-imagemin": "^0.9.4",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest"
+    "vite": "^5.0.0"
   }
 }
