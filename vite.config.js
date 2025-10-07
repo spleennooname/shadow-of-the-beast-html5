@@ -12,7 +12,7 @@ export default defineConfig({
     minify: 'terser',
     target: 'es2020',
     rollupOptions: {
-      output: {
+      /*output: {
         // Granular chunk splitting for better caching and smaller chunks
         manualChunks: (id) => {
           // PIXI.js core - split into smaller chunks
@@ -36,7 +36,7 @@ export default defineConfig({
             return 'vendor';
           }
         }
-      }
+      }*/
     },
     // Increase chunk size warning limit for game assets
     chunkSizeWarningLimit: 1000,
