@@ -1,5 +1,15 @@
 import * as PIXI from 'pixi.js';
-import { CRTFilter, BloomFilter, KawaseBlurFilter } from 'pixi-filters';
+
+/**
+ * Dynamically import filters for better code splitting
+ */
+let pixiFilters = null;
+const loadFilters = async () => {
+    if (!pixiFilters) {
+        pixiFilters = await import('pixi-filters');
+    }
+    return pixiFilters;
+};
 
 /**
  * Shadow of the Beast HTML5 - PIXI.js version
@@ -14,8 +24,8 @@ const GAME_CONFIG = {
     backgroundColor: '#000000'
 };
 
-// Asset paths
-const BASE_ASSETS = "./public/";
+// Asset paths - Vite serves public directory files at root path
+const BASE_ASSETS = "./";
 const BASE_SPRITES = BASE_ASSETS + "sprites/1280x800/";
 
 /**
@@ -64,7 +74,7 @@ class ShadowOfTheBeast {
         await this.loadAssets();
 
         // Create game scene
-        this.createScene();
+        await this.createScene();
 
         // Start game loop
         this.app.ticker.add((ticker) => this.update(ticker));
@@ -186,7 +196,7 @@ class ShadowOfTheBeast {
      */
     async loadAudio() {
         try {
-            this.audio = new Audio(`${BASE_ASSETS}audio/sotb.mp3`);
+            this.audio = new Audio('./audio/sotb.mp3');
             this.audio.loop = true;
             this.audio.volume = 0.7;
             
@@ -206,7 +216,7 @@ class ShadowOfTheBeast {
     /**
      * Create the main game scene with parallax layers
      */
-    createScene() {
+    async createScene() {
         // Verify critical assets are loaded
         const requiredAssets = ['sky', 'moon', 'aarbon', 'montagne', 'barriere'];
         for (const asset of requiredAssets) {
@@ -233,8 +243,9 @@ class ShadowOfTheBeast {
         moon.position.set(500, 10);
         moon.blendMode = 'lighten'; // PIXI equivalent of 'lighten'
         
-        // Create BloomFilter for stage-wide glow effect
-        this.bloomFilter = new BloomFilter({
+        // Create BloomFilter for stage-wide glow effect (loaded dynamically)
+        const filters = await loadFilters();
+        this.bloomFilter = new filters.BloomFilter({
             blur: 1.5,
             quality: 4,
             strength: 1,
@@ -267,7 +278,7 @@ class ShadowOfTheBeast {
             
             // Apply KawaseBlurFilter for depth effect - more blur = more distant
             if (layer.blur > 0) {
-                const kawaseBlur = new KawaseBlurFilter({
+                const kawaseBlur = new filters.KawaseBlurFilter({
                     blur: layer.blur,
                     quality: 3
                 });
@@ -336,7 +347,7 @@ class ShadowOfTheBeast {
         this.startAudio();
         
         // Apply CRT scanlines filter
-        this.setupCRTEffect();
+        await this.setupCRTEffect();
     }
 
     /**
@@ -369,9 +380,12 @@ class ShadowOfTheBeast {
     /**
      * Setup CRT scanlines effect and bloom filter
      */
-    setupCRTEffect() {
+    async setupCRTEffect() {
+        // Load filters dynamically
+        const filters = await loadFilters();
+        
         // Create CRT filter from pixi-filters
-        this.crtFilter = new CRTFilter({
+        this.crtFilter = new filters.CRTFilter({
             curvature: 1.0,
             lineWidth: 3.0,
             lineContrast: 0.3,
