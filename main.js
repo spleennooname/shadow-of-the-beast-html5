@@ -181,7 +181,7 @@ const loadAudio = async () => {
 const loadAssets = async (state) => {
     const assetManifest = {
         'aarbon': BASE_SPRITES + 'aarbonRun@2x.png',
-        'sky': BASE_SPRITES + 'sky@2x.png',
+        'sky': BASE_ASSETS + "sprites/640x400/" + 'sky.png',
         'moon': BASE_SPRITES + 'luna@2x.png',
         'barriere': BASE_SPRITES + 'barriere@2x.png',
         'erba0': BASE_SPRITES + 'herbe0@2x.png',
@@ -375,7 +375,7 @@ const createScene = async (state) => {
 
     // Sky background - ensure full coverage without Y repeat
     const skyLayer = createParallaxLayer('sky', 0, 60);
-    skyLayer.sprite.height = GAME_CONFIG.height * 0.5; // Override height for sky
+    skyLayer.sprite.height = GAME_CONFIG.height * 1.0; // Override height for sky
     state.app.stage.addChild(skyLayer.sprite);
 
     // Moon with bloom effect
