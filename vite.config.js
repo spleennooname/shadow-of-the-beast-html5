@@ -9,5 +9,5 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true
   },
-  base: './'
+  base: process.env.NODE_ENV === 'production' ? '/shadow-of-the-beast-html5/' : './'
 });

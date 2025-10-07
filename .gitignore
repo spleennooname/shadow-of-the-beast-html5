@@ -8,3 +8,9 @@ plugins
 1.13_src
 editor
 bamboo
+
+# Claude AI files
+CLAUDE.md
+.claude/
+claude.log
+claude-*.log
