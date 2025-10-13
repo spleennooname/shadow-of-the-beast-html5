@@ -1,6 +1,6 @@
-![Build Status](https://github.com/spleennooname/shadow-of-the-beast-html5/workflows/CI/badge.svg)
-
 # shadow-of-the-beast-html5
+
+[PIXI.js Version](https://img.shields.io/npm/dependency-version/sotb/pixi.js)
 
 16-bit Amiga classic title demo-scroller remake
 
