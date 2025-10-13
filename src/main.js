@@ -1,5 +1,9 @@
 import * as PIXI from 'pixi.js';
 
+import { ASSETS } from './assets.js';
+import { GAME_CONFIG } from './game.js';
+import { CRT_FILTER_OPTIONS } from './filters.js';
+
 /**
  * Dynamically import filters for better code splitting
  */
@@ -11,25 +15,7 @@ const loadFilters = async () => {
     return pixiFilters;
 };
 
-/**
- * Shadow of the Beast HTML5 - PIXI.js version
- * Functional approach with separate state management
- */
-
-// Game configuration
-const GAME_CONFIG = {
-    width: 640,
-    height: 400,
-    backgroundColor: '#000000'
-};
-
-// Asset paths - Vite serves public directory files at root path
-const BASE_ASSETS = "./";
-const BASE_SPRITES = BASE_ASSETS + "sprites/1280x800/";
-
-/**
- * Create initial game state
- */
+// game state object
 const createGameState = () => ({
     app: null,
     parallaxLayers: {},
@@ -179,26 +165,9 @@ const loadAudio = async () => {
  * @returns {Promise<Object>} Updated state
  */
 const loadAssets = async (state) => {
-    const assetManifest = {
-        'aarbon': BASE_SPRITES + 'aarbonRun@2x.png',
-        'sky': BASE_ASSETS + "sprites/640x400/" + 'sky.png',
-        'moon': BASE_SPRITES + 'luna@2x.png',
-        'barriere': BASE_SPRITES + 'barriere@2x.png',
-        'erba0': BASE_SPRITES + 'herbe0@2x.png',
-        'erba1': BASE_SPRITES + 'herbe1@2x.png',
-        'erba2': BASE_SPRITES + 'herbe2@2x.png',
-        'erba3': BASE_SPRITES + 'herbe3@2x.png',
-        'erba4': BASE_SPRITES + 'herbe4@2x.png',
-        'nuv0': BASE_SPRITES + 'nuages0@2x.png',
-        'nuv1': BASE_SPRITES + 'nuages1@2x.png',
-        'nuv2': BASE_SPRITES + 'nuages2@2x.png',
-        'nuv3': BASE_SPRITES + 'nuages3@2x.png',
-        'nuv4': BASE_SPRITES + 'nuages4@2x.png',
-        'montagne': BASE_SPRITES + 'montagnes@2x.png'
-    };
 
     // Validate and add assets to loader
-    for (const [alias, src] of Object.entries(assetManifest)) {
+    for (const [alias, src] of Object.entries(ASSETS)) {
         if (typeof src === 'string' && src.length > 0) {
             PIXI.Assets.add({ alias, src });
         } else {
@@ -208,7 +177,7 @@ const loadAssets = async (state) => {
 
     // Load all assets
     try {
-        await PIXI.Assets.load(Object.keys(assetManifest));
+        await PIXI.Assets.load(Object.keys(ASSETS));
         console.log('Assets loaded successfully');
     } catch (error) {
         console.error('Error loading assets:', error);
@@ -288,24 +257,10 @@ const setupCRTEffect = async (state) => {
     const filters = await loadFilters();
     
     // Create CRT filter from pixi-filters
-    const crtFilter = new filters.CRTFilter({
-        curvature: 2.0,
-        lineWidth: 1.0,
-        lineContrast: 0.3,
-        verticalLine: false,
-        noise: 0.1,
-        noiseSize: 0.2,
-        seed: Math.random(),
-        vignetting: 0.2,
-        vignettingAlpha: 0.4,
-        vignettingBlur: 0.8,
-        time: 0.5,
-        alpha: 0.1
-    });
+    const crtFilter = new filters.CRTFilter(CRT_FILTER_OPTIONS);
     
     // Apply both bloom and CRT filters to the entire stage
     state.app.stage.filters = [state.filters.bloom, crtFilter];
-    console.log('CRT filter applied', crtFilter);
     
     return {
         ...state,
@@ -327,6 +282,7 @@ const setupCRTEffect = async (state) => {
  */
 const createParallaxLayer = (textureName, y, speed, blur = 0, filters = null) => {
     const texture = PIXI.Assets.get(textureName);
+
     const sprite = new PIXI.TilingSprite({
         texture: texture,
         width: GAME_CONFIG.width * 2, // Make wider for seamless scrolling
@@ -338,7 +294,7 @@ const createParallaxLayer = (textureName, y, speed, blur = 0, filters = null) =>
     // Apply KawaseBlurFilter for depth effect - more blur = more distant
     if (blur > 0 && filters) {
         const kawaseBlur = new filters.KawaseBlurFilter({
-            blur: blur,
+            blur,
             quality: 3
         });
         sprite.filters = [kawaseBlur];
@@ -356,6 +312,7 @@ const createScene = async (state) => {
     // Verify critical assets are loaded
     const requiredAssets = ['sky', 'moon', 'aarbon', 'montagne', 'barriere'];
     for (const asset of requiredAssets) {
+        
         const texture = PIXI.Assets.get(asset);
         if (!texture) {
             console.error(`Asset '${asset}' not loaded or not found`);

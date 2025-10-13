@@ -5,40 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="i@spleen.noo.name">
     <meta name="description" content="Shadow of the Beast is a side-scrolling platform video game produced by Reflections and published by Psygnosis in 1989. The original version was released for the Commodore Amiga, and was later ported to many other systems. Shadow of the Beast is considered revolutionary at the time, because of its graphics, with many more colours on screen and up to twelve levels of parallax scrolling backdrops, were of a level rarely if ever seen before in action games.">
-    
-    <title>Shadow of the Beast - HTML5 (PIXI.js)</title>
-    
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            font-family: Arial, sans-serif;
-            width: 100%;
-            height: 100%;
-            overflow: hidden; /* Prevent scrollbars */
-        }
-        
-        canvas {
-            display: block;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-        }
-
-        .loading {
-            color: white;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
-        }
-    </style>
+    <title>Shadow of the Beast - demoscroller with PIXI.js</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="loading" id="loading">Loading Shadow of the Beast...</div>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./src/main.js"></script>
 </body>
 </html>
