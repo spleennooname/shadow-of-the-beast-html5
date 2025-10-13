@@ -1,5 +1,5 @@
 export const CRT_FILTER_OPTIONS = {
-  curvature: 2.0,
+  curvature: 1.0,
   lineWidth: 1.0,
   lineContrast: 0.3,
   verticalLine: false,

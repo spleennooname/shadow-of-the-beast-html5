@@ -294,7 +294,7 @@ const setupCRTEffect = async (state) => {
   const crtFilter = new filters.CRTFilter(CRT_FILTER_OPTIONS);
 
   // Apply both bloom and CRT filters to the entire stage
-  state.app.stage.filters = [state.filters.bloom];
+  state.app.stage.filters = [state.filters.bloom, crtFilter];
 
   return {
     ...state,
