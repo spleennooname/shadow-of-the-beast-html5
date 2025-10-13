@@ -1,6 +1,6 @@
 # shadow-of-the-beast-html5
 
- ![PIXI.js](https://img.shields.io/badge/PIXI.js-v8.0.0-blue.svg)
+ ![PIXI.js](https://img.shields.io/badge/PIXI.js-v8.0.0-blue.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/ef874f2b-2d7c-4233-ab93-5f28fce45878/deploy-status)](https://app.netlify.com/projects/shadowofthebeast/deploys)
 
 16-bit Amiga classic title demo-scroller remake
 
