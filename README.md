@@ -1,6 +1,6 @@
 # shadow-of-the-beast-html5
 
-[PIXI.js Version](https://img.shields.io/npm/dependency-version/sotb/pixi.js)
+ ![PIXI.js](https://img.shields.io/badge/PIXI.js-v8.0.0-blue.svg)
 
 16-bit Amiga classic title demo-scroller remake
 
