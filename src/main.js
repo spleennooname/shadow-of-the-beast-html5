@@ -230,8 +230,9 @@ const setupAudioToggle = (state) => {
   // Setup button event listener
   audioToggle.addEventListener('click', toggleAudio);
   
-  // Show the button
+  // Show the button in muted state initially
   audioToggle.style.display = 'flex';
+  updateButton(); // Initialize as muted/off
   
   return { toggleAudio, updateButton };
 };
@@ -243,20 +244,11 @@ const setupAudioToggle = (state) => {
 const startAudio = (state) => {
   if (!state.audio) return;
 
-  // Setup audio toggle button
+  // Setup audio toggle button (starts as off/muted)
   const audioControls = setupAudioToggle(state);
 
-  // Modern browsers require user interaction to play audio
-  const playPromise = state.audio.play();
-
-  if (playPromise !== undefined) {
-    playPromise.then(() => {
-      console.log('Audio playback started');
-      if (audioControls) audioControls.updateButton();
-    }).catch(() => {
-      console.log('Auto-play prevented. Audio toggle button available.');
-    });
-  }
+  // Don't attempt autoplay - let user control audio via button
+  console.log('Audio loaded. Use the audio button to start playback.');
 };
 
 /**
